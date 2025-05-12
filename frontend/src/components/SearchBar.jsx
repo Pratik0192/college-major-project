@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { ShopContext } from '../context/ShopContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const SearchBar = () => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const { products } = useContext(ShopContext);
 
@@ -18,7 +20,7 @@ const SearchBar = () => {
         <div className="flex items-center border border-gray-300 rounded-4xl px-2 bg-white">
           <input
             type="text"
-            placeholder="Search for Products..."
+            placeholder={t("searchPlaceholder")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="flex-1 p-3 text-md outline-none rounded-4xl text-gray-600 bg-white"
@@ -66,14 +68,14 @@ const SearchBar = () => {
                     {/* Rating & Reviews */}
                     {product.rating > 0 && product.reviews > 0 && (
                       <p className="text-xs text-yellow-600 mt-1">
-                        ★ {product.rating} ({product.reviews} reviews)
+                        ★ {product.rating} ({product.reviews} {t("reviews")})
                       </p>
                     )}
                   </div>
                 </Link>
               ))
             ) : (
-              <p className="text-gray-500 p-3 text-center">No matching products found.</p>
+              <p className="text-gray-500 p-3 text-center">{t("noMatchingProducts")}</p>
             )}
           </div>
         )}

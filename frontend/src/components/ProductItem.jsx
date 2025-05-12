@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import { useTranslation } from "react-i18next";
 
 const ProductItem = ({ product }) => {
+  const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
   const [currentImage, setCurrentImage] = useState(product.image[0]); // Default image
   const { addToWishlist, removeWishlist, wishlistItems } = useContext(ShopContext)
@@ -42,7 +44,7 @@ const ProductItem = ({ product }) => {
         }}
       >   
 
-      <div className="badge badge-primary text-xs md:text-sm items-center">{Math.round(((product.price - product.discounted_price) / product.price) * 100)}% OFF</div>
+      <div className="badge badge-primary text-xs md:text-sm items-center">{Math.round(((product.price - product.discounted_price) / product.price) * 100)}% {t("off")}</div>
 
         {/* Wishlist Icon */}
         <button
@@ -83,7 +85,7 @@ const ProductItem = ({ product }) => {
        
         
         <div className="flex items-center gap-2">
-          <span className="text-xs lg:text-sm text-gray-700">Colors:</span>
+          <span className="text-xs lg:text-sm text-gray-700">{t("colors")}</span>
           <p className="text-xs lg:text-sm flex gap-1 truncate w-full overflow-hidden whitespace-nowrap text-gray-700">
             {product.frameColour}
           </p>
@@ -98,15 +100,15 @@ const ProductItem = ({ product }) => {
         </div>
         
         <div className="flex justify-between" >
-          <p className="text-sm text-gray-700" >Price dropped by <span className="text-lg font-bold text-pink-500"  >₹{product.price - product.discounted_price}</span></p>
+          <p className="text-sm text-gray-700" > {t("priceDropped")} <span className="text-lg font-bold text-pink-500"  >₹{product.price - product.discounted_price}</span></p>
           <div className="hidden md:block dropdown dropdown-top dropdown-end dropdown-hover">
             <div tabIndex={0} role="button" className="btn m-1 rounded-2xl border-2 border-dashed border-black bg-white px-1 py-1 md:px-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"> <Search className="w-3 h-3 md:w-5 md:h-5" /> </div>
             <ul tabIndex={0} className="dropdown-content font-semibold menu bg-gray-100 text-gray-800 rounded-box z-1 w-52 p-2 shadow-sm border-2 border-dashed">
-              <li><a>Name: {product.name} </a></li>
-              <li><a>Category: {product.category }</a></li>
-              <li><a>Frame Width: {product.frameWidth} </a></li>
-              <li><a>Frame Dimensions: {product.frameDimensions} </a></li>
-              <li><a>Brand: {product.brand} </a></li>
+              <li><a> {t("name")}: {product.name} </a></li>
+              <li><a>{t("category")}: {product.category }</a></li>
+              <li><a>{t("frameWidth")}: {product.frameWidth} </a></li>
+              <li><a>{t("frameDimensions")}: {product.frameDimensions} </a></li>
+              <li><a>{t("brand")}: {product.brand} </a></li>
             </ul>
           </div>
         </div>

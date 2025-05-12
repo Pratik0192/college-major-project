@@ -4,8 +4,10 @@ import SidebarFilters from "../components/SidebarFilters";
 import { ShopContext } from "../context/ShopContext";
 import Loading from "../components/Loading";
 import { CiFilter } from "react-icons/ci";
+import { useTranslation } from "react-i18next";
 
 const Products = () => {
+  const { t } = useTranslation();
   const { products } = useContext(ShopContext);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -76,11 +78,11 @@ const Products = () => {
                 onChange={(e) => setSortOption(e.target.value)}
                 className="border text-gray-700 border-gray-300 p-2 rounded-md text-sm"
               >
-                <option value="recommended">Recommended</option>
-                <option value="price-high-low">Price: High to Low</option>
-                <option value="price-low-high">Price: Low to High</option>
-                <option value="popularity">Popularity</option>
-                <option value="top-rated">Top Rated</option>
+                <option value="recommended">{t("recommended")}</option>
+                <option value="price-high-low">{t("priceHighLow")}</option>
+                <option value="price-low-high">{t("priceLowHigh")}</option>
+                <option value="popularity">{t("popularity")}</option>
+                <option value="top-rated">{t("topRated")}</option>
               </select>
             </div>
 

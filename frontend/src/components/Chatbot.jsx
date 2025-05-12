@@ -53,7 +53,7 @@ const Chatbot = () => {
       {/* Floating Chat Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-18 lg:bottom-6 right-5.5 lg:right-6 z-50 bg-blue-800 text-white p-0 lg:p-3 rounded-full shadow-lg"
+        className="fixed bottom-18 lg:bottom-6 right-5.5 lg:right-6 z-10 bg-blue-800 text-white p-0 lg:p-3 rounded-full shadow-lg"
       >
         <Lottie animationData={chatBot} className="w-12 lg:w-25" />
       </button>

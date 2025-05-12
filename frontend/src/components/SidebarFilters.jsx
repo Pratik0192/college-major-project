@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { ShopContext } from "../context/ShopContext";
 import Slider from "@mui/material/Slider";
+import { useTranslation } from "react-i18next";
 
 const SidebarFilters = ({ setFilteredProducts }) => {
+
+  const { t } = useTranslation();
   const { category } = useParams();
   const { products } = useContext(ShopContext);
   const [selectedBrands, setSelectedBrands] = useState([]);
@@ -47,7 +50,7 @@ const SidebarFilters = ({ setFilteredProducts }) => {
       {/* Price Filter */}
       <div className="mb-4">
         <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("price")}>
-          <h3 className="font-semibold text-gray-700 text-lg">PRICE</h3>
+          <h3 className="font-semibold text-gray-700 text-lg">{t("price")}</h3>
           {openSections.price ? <FaChevronUp /> : <FaChevronDown />}
         </div>
         {openSections.price && (
@@ -72,7 +75,7 @@ const SidebarFilters = ({ setFilteredProducts }) => {
       
       <div className="mb-4 mt-4">
         <div className="flex justify-between items-center text-gray-700 cursor-pointer" onClick={() => toggleSection("brand")}>
-          <h3 className="font-semibold text-gray-700 text-lg">BRANDS</h3>
+          <h3 className="font-semibold text-gray-700 text-lg">{t("brands")}</h3>
           {openSections.brand ? <FaChevronUp /> : <FaChevronDown />}
         </div>
         {openSections.brand && (
@@ -91,7 +94,7 @@ const SidebarFilters = ({ setFilteredProducts }) => {
       
       <div className="mb-4 mt-4">
         <div className="flex justify-between items-center text-gray-700 cursor-pointer" onClick={() => toggleSection("frameColour")}>
-          <h3 className="font-semibold text-gray-700 text-lg">FRAME COLOURS</h3>
+          <h3 className="font-semibold text-gray-700 text-lg">{t("frameColours")}</h3>
           {openSections.frameColour ? <FaChevronUp /> : <FaChevronDown />}
         </div>
         {openSections.frameColour && (
@@ -111,7 +114,7 @@ const SidebarFilters = ({ setFilteredProducts }) => {
       
       <div className="mb-4 mt-4">
         <div className="flex justify-between text-gray-700 items-center cursor-pointer" onClick={() => toggleSection("sizes")}>
-          <h3 className="font-semibold text-lg">FRAME SIZES</h3>
+          <h3 className="font-semibold text-lg">{t("frameSizes")}</h3>
           {openSections.sizes ? <FaChevronUp /> : <FaChevronDown />}
         </div>
         {openSections.sizes && (

@@ -2,12 +2,6 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import logo from "../assets/new_logo.png";
 import { Link } from "react-router-dom";
 import {
-  CircleUser,
-  Heart,
-  Menu,
-  ShoppingBag,
-} from "lucide-react";
-import {
   FaRegUserCircle,
   FaHeart,
   FaShoppingBag,
@@ -20,25 +14,28 @@ import {
 import { ShopContext } from "../context/ShopContext";
 import SearchBar from "./SearchBar";
 import NavbarRight from "./NavbarRight";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const { token, setToken, getCartCount, wishlistItems, navigate } = useContext(ShopContext);
-  const [wishlistCount, setWishlistCount] = useState(0)
+  const { token, setToken, getCartCount, wishlistItems, navigate } =
+    useContext(ShopContext);
+  const [wishlistCount, setWishlistCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const mobileDropdownRef = useRef(null);
 
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current && !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
 
       if (
-        mobileDropdownRef.current && !mobileDropdownRef.current.contains(event.target)
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(event.target)
       ) {
         setIsOpen(false);
       }
@@ -94,7 +91,7 @@ const Navbar = () => {
           <ul className="menu p-4 w-64 min-h-full bg-white text-base-content">
             <div className="flex justify-between">
               <div className="text-xl font-bold text-blue-950 mb-4">
-                {token ? "Welcome!" : "Login to Continue"}
+                {token ? t("welcome") : t("loginContinue")}
               </div>
 
               <FaTimes
@@ -102,34 +99,34 @@ const Navbar = () => {
                 onClick={() => setMobileNavOpen(false)}
               />
             </div>
-            
+
             {/* nav links */}
             <div className="flex flex-col justify-between h-full">
               <div>
                 <li className="text-gray-700">
-                  <Link  to="/products" onClick={() => setMobileNavOpen(false)}>
+                  <Link to="/products" onClick={() => setMobileNavOpen(false)}>
                     <FaThLarge />
-                    All Products
+                    {t("allProducts")}
                   </Link>
                 </li>
                 {token && (
                   <li className="text-gray-700">
-                    <Link  to="/profile" onClick={() => setMobileNavOpen(false)}>
+                    <Link to="/profile" onClick={() => setMobileNavOpen(false)}>
                       <FaRegUserCircle />
-                      Profile
+                      {t("profile")}
                     </Link>
                   </li>
                 )}
                 <li className="text-gray-700">
                   <Link to="/orders" onClick={() => setMobileNavOpen(false)}>
                     <FaBoxOpen />
-                    Orders
+                    {t("orders")}
                   </Link>
                 </li>
                 <li className="text-gray-700">
                   <Link to="/wishlist" onClick={() => setMobileNavOpen(false)}>
                     <FaHeart />
-                    Wishlist
+                    {t("wishlist")}
                     <span className="badge badge-sm bg-blue-700 text-white ml-auto">
                       {wishlistCount}
                     </span>
@@ -138,7 +135,7 @@ const Navbar = () => {
                 <li className="text-gray-700">
                   <Link to="/cart" onClick={() => setMobileNavOpen(false)}>
                     <FaShoppingBag />
-                    Cart
+                    {t("cart")}
                     <span className="badge badge-sm bg-blue-700 text-white ml-auto">
                       {getCartCount()}
                     </span>
@@ -153,12 +150,36 @@ const Navbar = () => {
                       className="flex items-center gap-2 text-left"
                     >
                       <FaSignOutAlt />
-                      Logout
+                      {t("logout")}
                     </button>
                   </li>
                 )}
               </div>
-            </div> 
+              <div className="flex items-center gap-2 ml-3 mt-3">
+                <button
+                  onClick={() => {
+                    i18n.changeLanguage("en");
+                    localStorage.setItem("lang", "en");
+                  }}
+                  className={`text-sm px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 ${
+                    i18n.language === "en" ? "border-2 border-black" : ""
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => {
+                    i18n.changeLanguage("hi");
+                    localStorage.setItem("lang", "hi");
+                  }}
+                  className={`text-sm px-2 py-1 rounded bg-green-600 text-white hover:bg-green-700 ${
+                    i18n.language === "hi" ? "border-2 border-black" : ""
+                  }`}
+                >
+                  हिंदी
+                </button>
+              </div>
+            </div>
           </ul>
         </div>
       </div>
@@ -176,6 +197,30 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-x-6">
             <NavbarRight />
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  i18n.changeLanguage("en");
+                  localStorage.setItem("lang", "en");
+                }}
+                className={`text-sm px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 ${
+                  i18n.language === "en" ? "border-2 border-black" : ""
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => {
+                  i18n.changeLanguage("hi");
+                  localStorage.setItem("lang", "hi");
+                }}
+                className={`text-sm px-2 py-1 rounded bg-green-600 text-white hover:bg-green-700 ${
+                  i18n.language === "hi" ? "border-2 border-black" : ""
+                }`}
+              >
+                हिंदी
+              </button>
+            </div>
           </div>
         </div>
       </header>
