@@ -8,7 +8,9 @@ const Chatbot = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState(() => {
     const stored = localStorage.getItem("chatMessages");
-    return stored ? JSON.parse(stored) : [{ from: "bot", text: "Hi! How can I assist you today?" }];
+    return stored
+      ? JSON.parse(stored)
+      : [{ from: "bot", text: "Hi! How can I assist you today?" }];
   });
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -51,9 +53,9 @@ const Chatbot = () => {
       {/* Floating Chat Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-800 text-white p-3 rounded-full shadow-lg"
+        className="fixed bottom-18 lg:bottom-6 right-5.5 lg:right-6 z-50 bg-blue-800 text-white p-0 lg:p-3 rounded-full shadow-lg"
       >
-        <Lottie animationData={chatBot} className="w-14 lg:w-25" />
+        <Lottie animationData={chatBot} className="w-12 lg:w-25" />
       </button>
 
       {/* Chat Window */}
@@ -72,14 +74,13 @@ const Chatbot = () => {
                 }`}
               >
                 <div
-  className={`chat-bubble ${
-    msg.from === "user"
-      ? "chat-bubble-primary"
-      : "chat-bubble-accent"
-  }`}
-  dangerouslySetInnerHTML={{ __html: msg.text }}
-></div>
-
+                  className={`chat-bubble ${
+                    msg.from === "user"
+                      ? "chat-bubble-primary"
+                      : "chat-bubble-accent"
+                  }`}
+                  dangerouslySetInnerHTML={{ __html: msg.text }}
+                ></div>
               </div>
             ))}
 
