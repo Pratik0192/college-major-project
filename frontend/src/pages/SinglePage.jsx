@@ -33,7 +33,7 @@ const SinglePage = () => {
               (item.category === foundProduct.category ||
                 item.name.includes(foundProduct.name.split(" ")[0]))
           )
-          .slice(0, 4); // Limit to 4 related products
+          .slice(0, 4); // Limit to 4 related productss
 
         setRelatedProducts(related);
       }
@@ -41,6 +41,17 @@ const SinglePage = () => {
 
     fetchProductData();
   }, [productId, products]);
+
+  useEffect(() => {
+    if (!productId) return;
+
+    const existing = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
+
+    const updated = [productId, ...existing.filter((id) => id !== productId)];
+    updated.length = Math.min(updated.length, 5);
+
+    localStorage.setItem("recentlyViewed", JSON.stringify(updated));
+  }, [productId]);
 
   if (!productData) {
     return (
@@ -145,7 +156,7 @@ const SinglePage = () => {
                   className="px-6 py-2 w-full md:w-70  font-medium bg-blue-800 rounded text-white text-2xl transition-all shadow-md hover:shadow-none cursor-pointer"
                 >
                   Add to Cart
-                </button> 
+                </button>
                 <Link
                   to="/wishlist"
                   className="hidden md:block cursor-pointer text-black hover:text-blue-500 flex items-center gap-2"
