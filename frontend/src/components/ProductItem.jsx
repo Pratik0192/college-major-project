@@ -47,7 +47,7 @@ const ProductItem = ({ product }) => {
         {/* Wishlist Icon */}
         <button
           onClick={toggleWishlist}
-          className="absolute top-3 md:top-5 right-3 text-xl md:text-2xl transition-transform transform hover:scale-110 cursor-pointer"
+          className="absolute top-1 md:top-5 right-3 text-xl md:text-2xl transition-transform transform hover:scale-110 cursor-pointer"
         >
           {isWishlisted ? (
             <FaHeart className="text-red-500"  />
