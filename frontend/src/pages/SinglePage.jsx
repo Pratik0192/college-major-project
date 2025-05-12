@@ -145,10 +145,7 @@ const SinglePage = () => {
                   className="px-6 py-2 w-full md:w-70  font-medium bg-blue-800 rounded text-white text-2xl transition-all shadow-md hover:shadow-none cursor-pointer"
                 >
                   Add to Cart
-                </button>
-                <button className="px-6 py-2 w-full md:w-70 font-medium bg-gray-100 ring rounded text-blue-800 text-2xl transition-all shadow-md hover:shadow-none cursor-pointer">
-                  Buy Now
-                </button>
+                </button> 
                 <Link
                   to="/wishlist"
                   className="hidden md:block cursor-pointer text-black hover:text-blue-500 flex items-center gap-2"
@@ -162,11 +159,11 @@ const SinglePage = () => {
           </div>
         </div>
 
-        {/* Reviews Section */}
-        <ReviewSection productId={productId} productData={productData} />
-
         {/* Related Products Section */}
         <RelatedProducts relatedProducts={relatedProducts} />
+
+        {/* Reviews Section */}
+        <ReviewSection productId={productId} productData={productData} />
       </div>
     </div>
   );

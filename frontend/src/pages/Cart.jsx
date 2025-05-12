@@ -143,6 +143,7 @@ const Cart = () => {
         </div>
 
         {/* Bill Summary Section */}
+      {cartData.length !== 0 && (
         <div className="lg:w-1/3 bg-white shadow-md p-4 rounded-md mt-6 lg:mt-0">
           <h2 className="text-2xl font-semibold mb-4">Bill Details</h2>
           <div className="flex justify-between py-2">
@@ -162,6 +163,7 @@ const Cart = () => {
             Proceed To Checkout →
           </button>
         </div>
+      )}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { Check, Truck } from "lucide-react";
 import stripe from "../assets/stripe_logo.png";
 import razorpay from "../assets/razorpay_logo.png";
@@ -92,11 +91,11 @@ const ProductRightDetails = ({ productData }) => {
       </div>
 
       <div className="ml-auto text-black gap-2 flex items-center">
-        <Lottie animationData={wallet} className="w-[100px]" />
+        <Lottie animationData={wallet} className="w-[50px] lg:w-[100px]" />
         <p className="text-black ml-2 text-sm md:text-lg">Pay via</p>
-        <img src={stripe} alt="" />
+        <img src={stripe} alt="" className="w-10 lg:w-20" />
         |
-        <img src={razorpay} alt="" />
+        <img src={razorpay} alt="" className="w-14 lg:w-28" />
       </div>
     </>
   );

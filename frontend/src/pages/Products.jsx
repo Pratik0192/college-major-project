@@ -35,10 +35,6 @@ const Products = () => {
         sortedProducts = [...products].sort((a, b) => b.reviews - a.reviews);
       } else if (option === "top-rated") {
         sortedProducts = [...products].sort((a, b) => b.rating - a.rating);
-      } else if (option === "recently-added") {
-        sortProducts = [...products].sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
       } else {
         sortedProducts = [...products]; // Default "recommended" state: no sorting
       }
@@ -85,7 +81,6 @@ const Products = () => {
                 <option value="price-low-high">Price: Low to High</option>
                 <option value="popularity">Popularity</option>
                 <option value="top-rated">Top Rated</option>
-                {/* <option value="recently-added">Latest Products</option> */}
               </select>
             </div>
 

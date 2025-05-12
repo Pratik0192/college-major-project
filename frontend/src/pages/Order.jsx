@@ -67,14 +67,14 @@ const Order = () => {
   
   return (
     <div className="min-h-screen bg-white p-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-sm shadow-blue-400 p-6 rounded-md">
+      <div className="max-w-4xl mx-auto bg-white shadow-sm shadow-gray-200 p-6 rounded-md">
         <div className="flex justify-between" >
           <div className="flex gap-3" >
-            <h2 className="text-2xl text-black font-semibold mb-4">Purchase Summary </h2>
+            <h2 className="text-sm lg:text-2xl text-black font-semibold mb-4">Purchase Summary </h2>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5cca21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
           </div>
           <button
-            className="btn btn-primary"
+            className="hidden lg:block btn text-sm btn-primary w-20 lg:w-40"
             onClick={() => navigate("/")}
           >
             Continue Shopping
@@ -82,16 +82,16 @@ const Order = () => {
         </div>
         {orderData.length > 0 ? (
           orderData.map((order, index) => (
-            <div key={index} className="card bg-white ring-2 ring-gray-200 shadow-xl">
-              <div className="card-body flex flex-col md:flex-row items-start gap-6">
+            <div key={index} className="mt-2 card bg-white ring-2 ring-gray-200 shadow-xl">
+              <div className="card-body flex flex-col md:flex-row items-center gap-6">
                 <img
                   src={order.items[0].image[0]}
                   alt={order.items[0].name}
-                  className="w-36 h-36 object-cover rounded"
+                  className="w-24 h-24 lg:w-36 lg:h-36 object-cover rounded"
                 />
                 <div className="collapse collapse-arrow join-item border border-gray-300 flex-1 text-gray-800 space-y-1">
                   <input type="radio" name="my-accordion-4" defaultChecked />
-                  <div className="collapse-title font-semibold text-xl">
+                  <div className="collapse-title font-semibold text-md lg:text-xl">
                     {order.items[0].name}
                     <p className="text-sm" >
                       Total Price: ₹{order.amount}
@@ -117,7 +117,7 @@ const Order = () => {
                 </div>
                 <div className="self-center flex flex-row gap-4 md:flex-col md:gap-1 items-center ">
                   <button 
-                    className="bg-blue-500 text-white font-semibold p-2 rounded-md mt-4 cursor-pointer border border-blue-500 hover:bg-white hover:text-blue-500 w-32 h-12" 
+                    className="bg-blue-500 text-white font-semibold p-2 rounded-md cursor-pointer border border-blue-500 hover:bg-white hover:text-blue-500 w-16 h-8 lg:w-32 lg:h-12" 
                     onClick={() => {
                       setSelectedOrder(order);
                       document.getElementById("track_order_modal").showModal();
@@ -151,13 +151,13 @@ const Order = () => {
                   </dialog> 
                   {/* button cancel order */} 
                   { order.status.toLowerCase() !== "delivered" &&          
-                  <button className="bg-red-500 text-white font-semibold p-2 rounded-md mt-4 cursor-pointer border broder-red-500 hover:bg-white hover:text-red-500 w-32 h-12">
+                  <button className="bg-red-500 text-white font-semibold p-2 rounded-md cursor-pointer border broder-red-500 hover:bg-white hover:text-red-500 w-16 h-8 lg:w-32 lg:h-12">
                     Cancel Order
                   </button>
                   }
                   {order.status.toLowerCase() === "delivered" && (
                     <button 
-                      className="bg-green-500 text-white font-semibold p-2 rounded-md mt-2 cursor-pointer border border-green-500 hover:bg-white hover:text-green-500 w-32 h-12"
+                      className="bg-green-500 text-white font-semibold p-2 rounded-md cursor-pointer border border-green-500 hover:bg-white hover:text-green-500 w-16 h-8 lg:w-32 lg:h-12"
                       onClick={() => {
                         setSelectedOrder(order);
                         setSelectedProduct(order.items[0]);
