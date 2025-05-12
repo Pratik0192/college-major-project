@@ -17,6 +17,7 @@ import Verify from './pages/Verify'
 import ForgotPassword from './pages/ForgotPassword'
 import OTPVerification from './pages/OTPVerification'
 import ResetPassword from './pages/ResetPassword'
+import Chatbot from './components/Chatbot'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Navbar />
         <Navbar1 />
       </div>
+      <Chatbot />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={ <Products /> } />
