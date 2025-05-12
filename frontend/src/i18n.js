@@ -91,6 +91,17 @@ i18n.use(initReactI18next).init({
         frameDimensions: "Frame Dimensions",
         brand: "Brand",
         reviews: "reviews",
+
+        //for single page
+        stock: "In Stock",
+        shipping: "Shipping",
+        power: "Power",
+        selSize: "Select Sizes",
+        freeDel: "Free delivery if ordered within",
+        addtocart: "Add to Cart",
+        tech: "Technical Information",
+        war: "Warranty",
+        wanDet: "The product comes with a comprehensive warranty that covers manufacturing defects and malfunctions. It provides peace of mind and assurance of product quality. Customers can enjoy reliable support and prompt assistance for any issues related to the product during the warranty period."
       },
     },
     hi: {
@@ -137,6 +148,17 @@ i18n.use(initReactI18next).init({
         frameDimensions: "फ्रेम आयाम",
         brand: "ब्रांड",
         reviews: "समीक्षाएं",
+
+        //for single page
+        stock: "उपलब्ध",
+        shipping: "शिपिंग",
+        power: "पावर",
+        selSize: "आकार चुनें",
+        freeDel: "अगर इस समय सीमा के भीतर आदेश दिया जाए तो मुफ्त डिलीवरी ",
+        addtocart: "कार्ट में जोड़ें",
+        tech: "तकनीकी जानकारी",
+        war: "वारंटी",
+        wanDet: "यह उत्पाद एक व्यापक वारंटी के साथ आता है जो निर्माण दोषों और खराबी को कवर करती है। यह मानसिक शांति और उत्पाद की गुणवत्ता की गारंटी प्रदान करता है। ग्राहक वारंटी अवधि के दौरान उत्पाद से संबंधित किसी भी समस्या के लिए विश्वसनीय समर्थन और त्वरित सहायता का आनंद ले सकते हैं।"
       },
     },
   },

@@ -10,8 +10,10 @@ import RelatedProducts from "../components/RelatedProducts";
 import TechnicalAndWarranty from "../components/TechnicalAndWarranty";
 import ProductRightDetails from "../components/ProductRightDetails";
 import ProductLeftImage from "../components/ProductLeftImage";
+import { useTranslation } from "react-i18next";
 
 const SinglePage = () => {
+  const { t } = useTranslation()
   const { products, addToCart } = useContext(ShopContext);
   const { productId } = useParams();
   const [productData, setProductData] = useState(null);
@@ -89,14 +91,14 @@ const SinglePage = () => {
                       productData.price) *
                       100
                   )}
-                  % OFF
+                  % {t("off")}
                 </span>
                 <div className="ml-auto text-green flex items-center">
                   <span className="inline-block">
                     <Lottie animationData={Cartjson} className="w-[50px]" />
                   </span>
                   <p className="text-green-700 ml-2 text-sm md:text-lg">
-                    In Stock
+                    {t("stock")}
                   </p>
                 </div>
               </div>
@@ -106,17 +108,17 @@ const SinglePage = () => {
               {/* Product Details */}
               <div className="space-y-3 mb-4">
                 <p className="text-gray-700">
-                  <span className="font-medium">Power:</span>{" "}
+                  <span className="font-medium">{t('power')}:</span>{" "}
                   {productData.power || "Zero Power"}
                 </p>
                 <p className="text-gray-700">
-                  <span className="font-medium">Frame Color:</span>{" "}
+                  <span className="font-medium"> {t("frameColours")} :</span>{" "}
                   {productData.frameColour}
                 </p>
 
                 {/* Select Size */}
                 <div className="flex flex-col gap-4">
-                  <p className="font-medium text-gray-700">Select Size:</p>
+                  <p className="font-medium text-gray-700">{t("selSize")}</p>
                   <div className="flex gap-2 flex-wrap">
                     {productData.sizes.map((item, index) => {
                       const displaySize =
@@ -155,7 +157,7 @@ const SinglePage = () => {
                   onClick={() => addToCart(productData._id, size)}
                   className="px-6 py-2 w-full md:w-70  font-medium bg-blue-800 rounded text-white text-2xl transition-all shadow-md hover:shadow-none cursor-pointer"
                 >
-                  Add to Cart
+                  {t("addtocart")}
                 </button>
                 <Link
                   to="/wishlist"

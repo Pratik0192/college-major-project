@@ -7,8 +7,10 @@ import Lottie from "lottie-react";
 import wallet from "../assets/wallet.json";
 import review_stars from "../assets/starrs.json";
 import TryOn from "./TryOn";
+import { useTranslation } from "react-i18next";
 
 const ProductRightDetails = ({ productData }) => {
+  const { t } = useTranslation();
   const [countdown, setCountdown] = useState(3600);
   const [showTryOn, setShowTryOn] = useState(false);
 
@@ -39,7 +41,7 @@ const ProductRightDetails = ({ productData }) => {
         </span>
         <div className="ml-auto text-green flex">
           <Truck className="w-5 md:w-7" />
-          <p className="ml-2 text-sm md:text-lg">Shipping</p>
+          <p className="ml-2 text-sm md:text-lg"> {t("shipping")} </p>
         </div>
       </div>
 
@@ -47,7 +49,7 @@ const ProductRightDetails = ({ productData }) => {
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs sm:text-sm text-yellow-600 bg-yellow-100 px-2 py-1 rounded flex gap-2">
           <Lottie animationData={review_stars} className="w-4" />
-          {productData.rating}({productData.reviews} reviews)
+          {productData.rating}({productData.reviews} {t("reviews")})
         </span>
         {/* Try-On Image */}
         <div className="mb-6">
@@ -84,7 +86,7 @@ const ProductRightDetails = ({ productData }) => {
 
       {/* Countdown for Free Delivery */}
       <div className="mt-4 text-sm md:text-lg font-semibold text-gray-900 mb-2">
-        Free delivery if ordered within{" "}
+        {t("freeDel")} 
         <span className="text-red-500">
           {minutes}m {seconds}s
         </span>
