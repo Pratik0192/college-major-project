@@ -1,44 +1,3 @@
-// import i18n from "i18next"
-// import { initReactI18next } from "react-i18next"
-
-// const resources = {
-//   en: {
-//     translation: {
-//       allProducts: "All Products",
-//       profile: "Profile",
-//       orders: "Orders",
-//       wishlist: "Wishlist",
-//       cart: "Cart",
-//       logout: "Logout",
-//       welcome: "Welcome!",
-//       loginContinue: "Login to Continue",
-//     },
-//   },
-//   hi: {
-//     translation: {
-//       allProducts: "सभी उत्पाद",
-//       profile: "प्रोफ़ाइल",
-//       orders: "ऑर्डर",
-//       wishlist: "इच्छा-सूची",
-//       cart: "कार्ट",
-//       logout: "लॉग आउट",
-//       welcome: "स्वागत है!",
-//       loginContinue: "जारी रखने के लिए लॉगिन करें",
-//     },
-//   },
-// };
-
-// i18n.use(initReactI18next).init({
-//   resources,
-//   lng: "en", // default language
-//   fallbackLng: "en",
-//   interpolation: {
-//     escapeValue: false,
-//   },
-// });
-
-// export default i18n;
-
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 // import your translation files
@@ -101,7 +60,39 @@ i18n.use(initReactI18next).init({
         addtocart: "Add to Cart",
         tech: "Technical Information",
         war: "Warranty",
-        wanDet: "The product comes with a comprehensive warranty that covers manufacturing defects and malfunctions. It provides peace of mind and assurance of product quality. Customers can enjoy reliable support and prompt assistance for any issues related to the product during the warranty period."
+        wanDet: "The product comes with a comprehensive warranty that covers manufacturing defects and malfunctions. It provides peace of mind and assurance of product quality. Customers can enjoy reliable support and prompt assistance for any issues related to the product during the warranty period.",
+
+        Sunnav: "Sun Glasses",
+        Eye: "Eye Glasses",
+        Screen: "Screen Glasses",
+        Pay: "Pay via",
+        Our: "Our Propose",
+        Do: "Do More, Be More.",
+        Discover: "Discover",
+        Recently : "Recently Viewed",
+        Clear: "Clear Recently Viewed",
+        Benefits: "Benefits",
+        Related: "Related Products",
+        Customer: "Customer Reviews",
+        Wishlist: "Your Wishlist",
+        Cart: "Shopping Cart",
+        Items: "Items",
+        BillDetails: "Bill Details",
+        Payable: "Total Payable",
+        ItemPrice: "Total Item Price",
+        ShippingDetails: "Shipping Details",
+        PersonalInformation: "Personal Information",
+        AddressDetails: "Address Details",
+        Discount: "Discount",
+        DeliveryFee: "Delivery Fee",
+        ApplyCoupon: "Apply Coupon",
+        PaymentMethod: "Payment Method",
+        PlaceOrder: "Place Order",
+        PurchaseSummary: "Purchase Summary",
+        ContinueShopping: "Continue Shopping",
+        TrackOrder: "Track Order",
+        AddReview: "Add Review",
+        CancelOrder: "Cancel Order"
       },
     },
     hi: {
@@ -158,7 +149,40 @@ i18n.use(initReactI18next).init({
         addtocart: "कार्ट में जोड़ें",
         tech: "तकनीकी जानकारी",
         war: "वारंटी",
-        wanDet: "यह उत्पाद एक व्यापक वारंटी के साथ आता है जो निर्माण दोषों और खराबी को कवर करती है। यह मानसिक शांति और उत्पाद की गुणवत्ता की गारंटी प्रदान करता है। ग्राहक वारंटी अवधि के दौरान उत्पाद से संबंधित किसी भी समस्या के लिए विश्वसनीय समर्थन और त्वरित सहायता का आनंद ले सकते हैं।"
+        wanDet: "यह उत्पाद एक व्यापक वारंटी के साथ आता है जो निर्माण दोषों और खराबी को कवर करती है। यह मानसिक शांति और उत्पाद की गुणवत्ता की गारंटी प्रदान करता है। ग्राहक वारंटी अवधि के दौरान उत्पाद से संबंधित किसी भी समस्या के लिए विश्वसनीय समर्थन और त्वरित सहायता का आनंद ले सकते हैं।",
+
+        Sunnav: "धूप के चश्मे",
+        Eye: "चश्मे",
+        Screen: "स्क्रीन के चश्मे",
+        Pay: "भुगतान करें",
+        Our: "हमारा प्रस्ताव",
+        Do: "अधिक करें, अधिक बनें।",
+        Discover: "खोजें",
+        Recently : "हाल ही में देखे गए",
+        Clear: "हाल ही में देखे गए को साफ करें",
+        Benefits: "लाभ",
+        Related: "संबंधित उत्पाद",
+        Customer: "ग्राहक समीक्षाएँ",
+        Wishlist: "आपकी इच्छापत्रिका",
+        Cart: "शॉपिंग कार्ट",
+        Items: "आइटम",
+        BillDetails: "बिल विवरण",
+        Payable: "कुल देय",
+        ItemPrice: "कुल आइटम मूल्य",
+        ShippingDetails: "शिपिंग विवरण",
+        PersonalInformation: "व्यक्तिगत जानकारी",
+        AddressDetails: "पता विवरण",
+        Discount: "छूट",
+        DeliveryFee: "डिलीवरी शुल्क",
+        ApplyCoupon: "कूपन लागू करें",
+        PaymentMethod: "भुगतान विधि",
+        PlaceOrder: "आदेश दें",
+        PurchaseSummary: "खरीद का सारांश",
+        ContinueShopping: "खरीदारी जारी रखें",
+        TrackOrder: "आदेश ट्रैक करें",
+        AddReview: "समीक्षा जोड़ें",
+        CancelOrder: "आदेश रद्द करें"
+
       },
     },
   },

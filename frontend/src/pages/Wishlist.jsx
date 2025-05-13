@@ -7,8 +7,10 @@ import { toast } from "react-hot-toast";
 import Loading from "../components/Loading";
 import heart from "../assets/heartt.json";
 import Lottie from "lottie-react";
+import { useTranslation } from "react-i18next";
 
 const Wishlist = () => {
+  const { t } = useTranslation()
   const {
     wishlistItems,
     getWishlistedItems,
@@ -62,7 +64,7 @@ const Wishlist = () => {
             type="text"
           />
         </span>
-        Your Wishlist ({wishlistedProducts.length}{" "}
+        {t("Wishlist")} ({wishlistedProducts.length}{" "}
         {wishlistedProducts.length === 1 ? "item" : "items"} in wishlist)
         <span className="inline-block">
           <Lottie

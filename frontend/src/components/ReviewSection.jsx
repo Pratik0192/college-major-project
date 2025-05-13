@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import review_stars from "../assets/starrs.json"
 import { ShopContext } from "../context/ShopContext";
+import { useTranslation } from "react-i18next";
 
 const ReviewSection = ({ productId, productData }) => {
-
+  const { t } = useTranslation()
   const { backendUrl } = useContext(ShopContext);
   const [reviews, setReviews] = useState([]);
 
@@ -26,7 +27,7 @@ const ReviewSection = ({ productId, productData }) => {
     <div className="mt-10 bg-white rounded-lg shadow-md p-6">
       <div className="flex gap-2 items-center">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">
-          Customer Reviews
+        {t("Customer")}
         </h2>
         <Lottie animationData={review_stars} className="w-8 -mt-3" />
         <p className="text-gray-700 -mt-3">

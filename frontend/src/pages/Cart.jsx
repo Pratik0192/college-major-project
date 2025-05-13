@@ -4,8 +4,10 @@ import { ShopContext } from "../context/ShopContext";
 import Cartjson from "../assets/cartt.json";
 import emptycart from "../assets/emptycart.json";
 import Lottie from "lottie-react";
+import { useTranslation } from "react-i18next";
 
 const Cart = () => {
+  const { t } = useTranslation()
   const {
     products,
     cartItems,
@@ -59,7 +61,7 @@ const Cart = () => {
                   className="w-[30px] md:w-[50px]"
                 />
               </span>
-              Shopping Cart ({cartData.length} items)
+              {t("Cart")} ({cartData.length}  {t("Items")})
               <span className="inline-block">
                 <Lottie
                   animationData={Cartjson}
@@ -145,13 +147,13 @@ const Cart = () => {
         {/* Bill Summary Section */}
       {cartData.length !== 0 && (
         <div className="lg:w-1/3 bg-white shadow-md p-4 rounded-md mt-6 lg:mt-0">
-          <h2 className="text-2xl font-semibold mb-4">Bill Details</h2>
+          <h2 className="text-2xl font-semibold mb-4"> {t("BillDetails")}</h2>
           <div className="flex justify-between py-2">
-            <span>Total item price</span>
+            <span>{t("ItemPrice")}</span>
             <span className="font-medium">₹{getCartAmount()}</span>
           </div>
           <div className="flex justify-between py-2 font-semibold text-lg">
-            <span>Total payable</span>
+            <span>{t("Payable")}</span>
             <span>₹{getCartAmount()}</span>
           </div>
 

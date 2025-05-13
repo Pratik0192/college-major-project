@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import ProductItem from './ProductItem';
+import { useTranslation } from "react-i18next";
 
 const RecentlyViewed = () => {
 
+  const { t } = useTranslation()
   const { products } = useContext(ShopContext);
   const [recentProducts, setRecentProducts] = useState([]);
 
@@ -24,7 +26,7 @@ const RecentlyViewed = () => {
 
   return (
     <div className='my-10 px-4 lg:px-10'>
-      <h1 className="text-center text-2xl lg:text-4xl font-semibold mb-4 text-gray-800">Recently Viewed</h1>
+      <h1 className="text-center text-2xl lg:text-4xl font-semibold mb-4 text-gray-800">{t("Recently")}</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-10">
         {recentProducts.map(product => (
@@ -37,7 +39,7 @@ const RecentlyViewed = () => {
           onClick={clearRecentlyViewed} 
           className="btn btn-danger text-white"
         >
-          Clear Recently Viewed
+          {t("Clear")} 
         </button>
       </div>
     </div>

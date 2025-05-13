@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const Order = () => {
+  const { t } = useTranslation()
   const { navigate, backendUrl, token } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
   const [ selectedOrder, setSelectedOrder ] = useState(null);
@@ -70,14 +72,14 @@ const Order = () => {
       <div className="max-w-4xl mx-auto bg-white shadow-sm shadow-gray-200 p-6 rounded-md">
         <div className="flex justify-between" >
           <div className="flex gap-3" >
-            <h2 className="text-sm lg:text-2xl text-black font-semibold mb-4">Purchase Summary </h2>
+            <h2 className="text-sm lg:text-2xl text-black font-semibold mb-4">{t("PurchaseSummary")} </h2>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5cca21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
           </div>
           <button
             className="hidden lg:block btn text-sm btn-primary w-20 lg:w-40"
             onClick={() => navigate("/")}
           >
-            Continue Shopping
+            {t("ContinueShopping")}
           </button>
         </div>
         {orderData.length > 0 ? (
@@ -123,7 +125,7 @@ const Order = () => {
                       document.getElementById("track_order_modal").showModal();
                     }}
                   >
-                    Track Order
+                    {t("TrackOrder")}
                   </button>
                   {/* track order model */}
                   <dialog id="track_order_modal" className="modal">
@@ -152,7 +154,7 @@ const Order = () => {
                   {/* button cancel order */} 
                   { order.status.toLowerCase() !== "delivered" &&          
                   <button className="bg-red-500 text-white font-semibold p-2 rounded-md cursor-pointer border broder-red-500 hover:bg-white hover:text-red-500 w-16 h-8 lg:w-32 lg:h-12">
-                    Cancel Order
+                    {t("CancelOrder")}
                   </button>
                   }
                   {order.status.toLowerCase() === "delivered" && (
@@ -164,7 +166,7 @@ const Order = () => {
                         document.getElementById("review_modal").showModal();
                       }}
                     >
-                      Add Review
+                      {t("AddReview")}
                     </button>
                   )}
                 </div>

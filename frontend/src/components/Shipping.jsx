@@ -8,8 +8,10 @@ import Lottie from 'lottie-react'
 import Coupon from '../assets/coupon.json';
 import truck from '../assets/shipping.json';
 import del from '../assets/delivery.json';
-const Shipping = () => {
+import { useTranslation } from "react-i18next";
 
+const Shipping = () => {
+  const { t } = useTranslation()
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [coupons, setCoupons] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -163,13 +165,13 @@ const Shipping = () => {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
        {/* Left Side: Shipping Form */}
       <div className="w-full lg:w-2/3 bg-white shadow-md p-6 rounded-md">
-        <h2 className="text-2xl font-semibold mb-4 text-black">Shipping Details</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-black">{t("ShippingDetails")}</h2>
 
         <div className="flex justify-between" >
         <span className="hidden md:block" > <Lottie animationData={truck} className='w-40' /> </span>
 
         <fieldset className="fieldset w-full bg-white text-black border border-gray-500 p-4 rounded-box">
-          <legend className="fieldset-legend text-lg font-semibold text-black">Personal Information</legend>
+          <legend className="fieldset-legend text-lg font-semibold text-black">{t("PersonalInformation")}</legend>
           <div className="flex justify-between gap-4">
             <input
               type="text"
@@ -208,7 +210,7 @@ const Shipping = () => {
         <div className="flex justify-between" >
 
         <fieldset className="fieldset w-full border bg-white border-gray-500 p-4 rounded-box mt-4">
-          <legend className="fieldset-legend text-lg font-semibold text-black">Address Details</legend>
+          <legend className="fieldset-legend text-lg font-semibold text-black">{t("AddressDetails")}</legend>
           <input
             type="text"
             name="street"
@@ -287,20 +289,20 @@ const Shipping = () => {
 
         {/* Right Side: Bill Details */}
         <div className="w-full lg:w-1/3 bg-white shadow-md p-6 rounded-md">
-          <h2 className="text-2xl font-semibold mb-4">Bill Details</h2>
+          <h2 className="text-2xl font-semibold mb-4">{t("BillDetails")}</h2>
 
           <div className="flex justify-between py-2">
-            <span>Discount</span>
+            <span>{t("Discount")}</span>
             <span className="font-medium">₹{discountAmount}</span>
           </div>
 
           <div className="flex justify-between py-2">
-            <span>Delivery Fee</span>
+            <span>{t("DeliveryFee")}</span>
             <span>₹{delivery_fee}</span>
           </div>
 
           <div className="flex justify-between py-2 font-semibold text-lg">
-            <span>Total Payable</span>
+            <span>{t("Payable")}</span>
             
             <span>
             {discountAmount > 0 && (
@@ -311,7 +313,7 @@ const Shipping = () => {
           </div>
 
           <div className="mt-1">
-            <label className="block mb-1 text-xl font-medium">Apply Coupon  <span className="inline-block" > <Lottie animationData={Coupon} className='w-[35px]'  /> </span> </label>
+            <label className="block mb-1 text-xl font-medium">{t("ApplyCoupon")}  <span className="inline-block" > <Lottie animationData={Coupon} className='w-[35px]'  /> </span> </label>
             <select
               value={selectedCoupon || ""}
               onChange={(e) => setSelectedCoupon(e.target.value)}
@@ -337,7 +339,7 @@ const Shipping = () => {
 
           {/* Payment Method */}
           <div className="mt-4">
-            <h3 className="text-lg font-semibold">Payment Method</h3>
+            <h3 className="text-lg font-semibold">{t("PaymentMethod")}</h3>
             <div className="items-center gap-4 mt-2">
               <label className="flex items-center gap-2 cursor-pointer mb-2">
                 <input

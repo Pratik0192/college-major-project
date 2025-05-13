@@ -69,7 +69,7 @@ const ProductRightDetails = ({ productData }) => {
 
       {/* Details */}
       <div className="text-gray-800 mb-4">
-        <h3 className="text-2xl font-bold">Benefits</h3>
+        <h3 className="text-2xl font-bold">{t("Benefits")}</h3>
         <span className="text-gray-800 flex mt-2">
           <Check className="text-green-600" />{" "}
           <p className="ml-2">UV protection</p>
